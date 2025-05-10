@@ -1,4 +1,6 @@
 # React + Vite
+Lecture source : 
+[udemy lecture from lecture 230](https://www.udemy.com/course/spring-security-6-with-reactjs-oauth2-jwt-multifactor-authentication/learn/lecture/46798063#questions).
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
