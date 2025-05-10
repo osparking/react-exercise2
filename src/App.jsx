@@ -10,6 +10,8 @@ function App() {
     <>
       <div>
         <h1>계수: {count}</h1>
+        <button onClick={incCount}>증가</button>
+        <button onClick={decCount}>감소</button>
       </div>
     </>
   )
