@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import useCounter from './useCounter';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const incCount = () => setCount(count + 1);
-  const decCount = () => setCount(count - 1);
+  const {count, incCount, decCount} = useCounter();
 
   return (
     <>
