@@ -5,6 +5,7 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState();
   const handleSubmit = (e) => {
+    e.preventDefault();
     const newPost = {
       title: 'foo',
       body: 'bar',
@@ -16,6 +17,8 @@ function App() {
     .then(response => {
       console.log("추가된 노트: ", response.data);
       setData([response.data]);
+    }).catch((e) => {
+      console.error("오류: ", e);
     })
   }
   
