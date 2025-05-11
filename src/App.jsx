@@ -4,7 +4,13 @@ import './App.css';
 
 axios.interceptors.request.use(request => {
   console.log("요청 전송 직전");
+  console.log("요청: ", request);
   return request;
+});
+
+axios.interceptors.response.use(response => {
+  console.log("반응 접수 직후: ", response);
+  return response;
 });
 
 function App() {
