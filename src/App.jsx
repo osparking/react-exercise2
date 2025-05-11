@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+axios.interceptors.request.use(request => {
+  console.log("요청 전송 직전");  
+});
+
 function App() {
   const [data, setData] = useState();
   const handleSubmit = (e) => {
