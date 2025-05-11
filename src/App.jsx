@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import './App.css';
 import axios from 'axios';
+import { useState } from 'react';
+import './App.css';
 
 axios.interceptors.request.use(request => {
-  console.log("요청 전송 직전");  
+  console.log("요청 전송 직전");
+  return request;
 });
 
 function App() {
