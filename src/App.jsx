@@ -2,15 +2,16 @@ import axios from 'axios';
 import { useState } from 'react';
 import './App.css';
 
-axios.interceptors.request.use(request => {
-  console.log("요청 전송 직전");
-  console.log("요청: ", request);
-  return request;
+const axi = axios.create({
+  baseURL : "https://jsonplaceholder.typicode.com",
+  headers : {
+    "Authorization" : "Bearer <TOKEN>"
+  }
 });
 
-axios.interceptors.response.use(response => {
-  console.log("반응 접수 직후: ", response);
-  return response;
+axi.interceptors.request.use((request) => {
+  console.log("request: ", request);
+  return request;  
 });
 
 function App() {
@@ -22,9 +23,7 @@ function App() {
       body: 'bar',
       userId: 1,
     };
-    axios.post(
-      "https://jsonplaceholder.typicode.com/posts", 
-      newPost)
+    axi.post("/posts", newPost)
     .then(response => {
       console.log("추가된 노트: ", response.data);
       setData([response.data]);
