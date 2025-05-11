@@ -3,12 +3,15 @@ import './App.css';
 
 function App() {
   const [ data, setData ] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true)
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
-      .then(json => setData(json));
+      .then(json => {
+        setData(json);
+        setIsLoading(false)});
   }, []);
 
   if (isLoading) {
