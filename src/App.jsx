@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const [data, setData] = useState([]);
@@ -8,12 +9,12 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(json => {
-        setData(json);
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        console.log(response);
+        setData(response.data);
         setIsLoading(false);
-        throw new Error("포스트 자료 적재 오류 발생!");
+        // throw new Error("포스트 자료 적재 오류 발생!");
       })
       .catch(error => {
         console.error("에러: ", error);
