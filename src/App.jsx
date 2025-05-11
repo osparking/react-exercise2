@@ -16,7 +16,7 @@ function App() {
         throw new Error("포스트 자료 적재 오류 발생!");
       })
       .catch(error => {
-        console.log("에러: ", error);
+        console.error("에러: ", error);
         setError(error);
         setIsLoading(false);
       });
