@@ -12,12 +12,13 @@ function App() {
       .then(response => response.json())
       .then(json => {
         setData(json);
-        setIsLoading(false)
+        setIsLoading(false);
+        throw new Error("포스트 자료 적재 오류 발생!");
       })
       .catch(error => {
         console.log("에러: ", error);
         setError(error);
-        isLoading(false);        
+        setIsLoading(false);
       });
   }, []);
 
