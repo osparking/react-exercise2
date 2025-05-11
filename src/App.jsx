@@ -17,7 +17,7 @@ function App() {
         <ul>
           {data.map((post) => 
             <li key={post.id}>
-              <p>제목: {post.title}</p>
+              <p><strong>제목: {post.title}</strong></p>
               <p>내용: {post.body}</p>
             </li>)}
         </ul>
