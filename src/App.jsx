@@ -8,15 +8,18 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true)
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then(response => {
-        console.log(response);
-        setData(response.data);
-        setIsLoading(false);
-        // throw new Error("포스트 자료 적재 오류 발생!");
-      })
-      .catch(error => {
+    setIsLoading(true);
+    axios.all([
+      axios.get('https://jsonplaceholder.typicode.com/posts'),
+      axios.get('https://jsonplaceholder.typicode.com/users')]
+    ).then(axios.spread((posts, users) => {
+      console.log(posts);
+      console.log(users);
+      setData(posts.data);
+      setIsLoading(false);
+      // throw new Error("포스트 자료 적재 오류 발생!");
+    })
+    ).catch(error => {
         console.error("에러: ", error);
         setError(error);
         setIsLoading(false);
