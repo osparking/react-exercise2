@@ -3,12 +3,17 @@ import './App.css';
 
 function App() {
   const [ data, setData ] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(json => setData(json));
   }, []);
+
+  if (isLoading) {
+    return <p>자료 적재 중...</p>
+  }
   
   return (
     <>
