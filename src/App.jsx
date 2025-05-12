@@ -16,7 +16,10 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("제출 폼 내용: ", formData);    
+    validateForm();
+    if (Object.keys(errors).length === 0) {
+      console.log("제출 폼 내용: ", formData);
+    }   
   }
 
   const handleChange = (e) => {
