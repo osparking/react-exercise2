@@ -1,18 +1,6 @@
-import axios from 'axios';
 import { useState } from 'react';
 import './App.css';
-
-const axi = axios.create({
-  baseURL : "https://jsonplaceholder.typicode.com",
-  headers : {
-    "Authorization" : "Bearer <TOKEN>"
-  }
-});
-
-axi.interceptors.request.use((request) => {
-  console.log("request: ", request);
-  return request;  
-});
+import axi from './api/api';
 
 function App() {
   const [data, setData] = useState();
