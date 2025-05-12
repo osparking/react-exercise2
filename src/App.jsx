@@ -10,7 +10,11 @@ function App() {
     console.log("제출 폼 내용: ", formData);    
   }
 
-  const handleChange = () => {
+  const handleChange = (e) => {
+    console.log("name: ", e.target.value);
+    setFormData({
+      ...formData, 
+      [e.target.name]: e.target.value});
   }
 
   return (
