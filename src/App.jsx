@@ -6,7 +6,8 @@ function App() {
     name: '(성명)'
   })
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("제출 폼 내용: ", formData);    
   }
 
