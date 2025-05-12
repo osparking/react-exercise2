@@ -13,7 +13,7 @@ function App() {
       setErrors({...errors, name: '이름이 누락되었습니다!'});
     }
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("제출 폼 내용: ", formData);    
@@ -31,14 +31,18 @@ function App() {
     <div>
       <h1>리액트 폼</h1>
       <form onSubmit={handleSubmit}>
-        <input 
+        <label>이름:
+          <input 
           type='text' name='name' 
           value={formData.name}
           onChange={handleChange}/>
-        <input 
+        </label>
+        <label>이메일:
+          <input 
           type='email' name='email' 
           value={formData.email}
           onChange={handleChange}/>
+        </label>
         <button type="submit">폼 제출</button>
       </form>
     </div>
