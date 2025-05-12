@@ -9,22 +9,25 @@ function App() {
 
   const [errors, setErrors] = useState({});
   const validateForm = () => {
+    const foundErrors = {};
     if (formData.name.trim().length === 0) {
-      setErrors({ ...errors, name: '이름이 누락되었습니다!' });
+      foundErrors.name = '이름이 누락되었습니다!';
     }
+    return foundErrors;
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    validateForm();
-    if (Object.keys(errors).length === 0) {
+    const foundErrors = validateForm();
+    if (Object.keys(foundErrors).length === 0) {
+      setErrors(foundErrors)
       console.log("제출 폼 내용: ", formData);
     }
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     if (errors[name] && value) {
       const modified = { ...errors };
       delete modified[name];
