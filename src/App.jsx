@@ -1,34 +1,11 @@
-import { useState } from 'react';
 import './App.css';
-import axi from './api/api';
 
 function App() {
-  const [data, setData] = useState();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newPost = {
-      title: 'foo',
-      body: 'bar',
-      userId: 1,
-    };
-    axi.post("/posts", newPost)
-    .then(response => {
-      console.log("추가된 노트: ", response.data);
-      setData([response.data]);
-    }).catch((e) => {
-      console.error("오류: ", e);
-    })
-  }
-  
+
   return (
-    <>
-      <div>
-        <h1>API 사용하기</h1>
-        <form onSubmit={handleSubmit}>
-          <button type="submit">노트 추가</button>
-        </form>
-      </div>
-    </>
+    <div>
+      <h1>리액트 폼</h1>
+    </div>
   )
 }
 
