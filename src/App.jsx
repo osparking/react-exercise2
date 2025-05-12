@@ -3,10 +3,17 @@ import './App.css';
 
 function App() {
   const [formData, setFormData] = useState({
-    name: '(성명)',
-    email: '(이메일)'
+    name: '',
+    email: ''
   })
 
+  const [errors, setErrors] = useState({});
+  const validateForm = () => {
+    if (formData.name.trim().length === 0) {
+      setErrors({...errors, name: '이름이 누락되었습니다!'});
+    }
+  }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("제출 폼 내용: ", formData);    
