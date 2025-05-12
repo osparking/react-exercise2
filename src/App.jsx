@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
 
     <div>
       <h1>리액트 폼</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>이름:
         </label>
         <br />
