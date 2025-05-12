@@ -14,6 +14,9 @@ axi.interceptors.request.use((request) => {
     request.headers.Authorization = `Bearer ${token}`;
   }
   return request;
+}, function(error){
+  console.error("요청 오류: ", error);
+  return Promise.reject(error);
 });
 
 export default axi;
