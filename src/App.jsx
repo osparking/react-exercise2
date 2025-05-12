@@ -17,6 +17,13 @@ function App() {
 
     <div>
       <h1>리액트 폼</h1>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type='text' name='name' 
+          value={formData.name}
+          onChange={handleChange}/>
+        <button type="submit">폼 제출</button>
+      </form>
     </div>
   )
 }
