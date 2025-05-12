@@ -23,6 +23,14 @@ function App() {
   }
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    if (errors[name] && value) {
+      const modified = { ...errors };
+      delete modified[name];
+      setErrors(modified);
+    }
+
     console.log("name: ", e.target.value);
     setFormData({
       ...formData,
