@@ -2,46 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: ''
-  })
-
-  const [errors, setErrors] = useState({});
-  const validateForm = () => {
-    const foundErrors = {};
-    if (formData.name.trim().length === 0) {
-      foundErrors.name = '이름이 누락되었습니다!';
-    }
-    return foundErrors;
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const foundErrors = validateForm();
-    if (Object.keys(foundErrors).length === 0) {
-      console.log("제출 폼 내용: ", formData);
-    } else {
-      setErrors(foundErrors)
-    }
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    if (errors[name] && value) {
-      const modified = { ...errors };
-      delete modified[name];
-      setErrors(modified);
-    }
-
-    console.log("name: ", e.target.value);
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  }
-
+  
   return (
 
     <div>
