@@ -20,8 +20,9 @@ function App() {
     e.preventDefault();
     const foundErrors = validateForm();
     if (Object.keys(foundErrors).length === 0) {
-      setErrors(foundErrors)
       console.log("제출 폼 내용: ", formData);
+    } else {
+      setErrors(foundErrors)
     }
   }
 
