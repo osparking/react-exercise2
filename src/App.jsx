@@ -3,7 +3,8 @@ import './App.css';
 
 function App() {
   const [formData, setFormData] = useState({
-    name: '(성명)'
+    name: '(성명)',
+    email: '(이메일)'
   })
 
   const handleSubmit = (e) => {
@@ -26,6 +27,10 @@ function App() {
         <input 
           type='text' name='name' 
           value={formData.name}
+          onChange={handleChange}/>
+        <input 
+          type='email' name='email' 
+          value={formData.email}
           onChange={handleChange}/>
         <button type="submit">폼 제출</button>
       </form>
