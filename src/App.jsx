@@ -25,9 +25,9 @@ function App() {
       <h1>리액트 폼</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>이름:
-          <input {...register('name', { required: '이름은 꼭꼭 넣으세요.' })} />
+          <input {...register('name', { required: true, minLength: 2})} />
         </label>
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p>이름은 두 자 이상입니다.</p>}
         <br />
         <label>이메일:
           <input {...register('email')} />
