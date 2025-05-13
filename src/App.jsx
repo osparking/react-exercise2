@@ -15,6 +15,7 @@ function App() {
         </label>
         <br />
         <label>이메일:
+          <input {...register('email')} />
         </label>
         <button type="submit">폼 제출</button>
       </form>
