@@ -30,8 +30,9 @@ function App() {
         {errors.name && <p>이름은 두 자 이상입니다.</p>}
         <br />
         <label>이메일:
-          <input {...register('email')} />
+          <input {...register('email', { required: true})} />
         </label>
+        {errors.email && <p>이메일은 필수적 입니다.</p>}
         <button type="submit">폼 제출</button>
       </form>
     </div>
