@@ -7,17 +7,9 @@ function App() {
     formState: { errors } } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  const currName = watch('name');
-
   useEffect(() => {
-    console.log("이름 현재 값: ", currName);
-  }, [currName]);
-
-  const currEmail = watch('email');
-
-  useEffect(() => {
-    console.log("이메일 현재 값: ", currEmail);
-  }, [currEmail]);
+    console.log("성분 상태 변화 탐지");
+  });
 
   return (
 
