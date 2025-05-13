@@ -1,7 +1,9 @@
+import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
-  
+  const {register, handleSubmit} = useForm();
+    
   return (
 
     <div>
