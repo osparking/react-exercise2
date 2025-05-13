@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch, 
+          formState: {errors} } = useForm();
   const onSubmit = (data) => console.log(data);
 
   const currName = watch('name');
@@ -24,8 +25,9 @@ function App() {
       <h1>리액트 폼</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>이름:
-          <input {...register('name')} />
+          <input {...register('name', { required: true })} />
         </label>
+        {errors.name && <p>이름은 필수 항목입니다.</p>}
         <br />
         <label>이메일:
           <input {...register('email')} />
