@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
-  const { register, handleSubmit, watch, 
-          formState: {errors} } = useForm();
+  const { register, handleSubmit, watch,
+    formState: { errors } } = useForm();
   const onSubmit = (data) => console.log(data);
 
   const currName = watch('name');
@@ -12,22 +12,22 @@ function App() {
   useEffect(() => {
     console.log("이름 현재 값: ", currName);
   }, [currName]);
-  
+
   const currEmail = watch('email');
 
   useEffect(() => {
     console.log("이메일 현재 값: ", currEmail);
   }, [currEmail]);
-  
+
   return (
 
     <div>
       <h1>리액트 폼</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>이름:
-          <input {...register('name', { required: true })} />
+          <input {...register('name', { required: '이름은 꼭꼭 넣으세요.' })} />
         </label>
-        {errors.name && <p>이름은 필수 항목입니다.</p>}
+        {errors.name && <p>{errors.name.message}</p>}
         <br />
         <label>이메일:
           <input {...register('email')} />
