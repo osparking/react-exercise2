@@ -3,13 +3,15 @@ import './App.css';
 
 function App() {
   const {register, handleSubmit} = useForm();
-    
+  const onSubmit = (data) => console.log(data);  
+  
   return (
 
     <div>
       <h1>리액트 폼</h1>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label>이름:
+          <input {...register('name')} />
         </label>
         <br />
         <label>이메일:
