@@ -8,7 +8,7 @@ function App() {
   const onSubmit = (data) => console.log(data);
 
   useEffect(() => {
-    console.log("성분 상태 변화 탐지");
+    console.log("상태 변화로 인해 리렌더됨");
   });
 
   return (
