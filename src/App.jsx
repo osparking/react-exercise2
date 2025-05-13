@@ -12,6 +12,12 @@ function App() {
     console.log("이름 현재 값: ", currName);
   }, [currName]);
   
+  const currEmail = watch('email');
+
+  useEffect(() => {
+    console.log("이메일 현재 값: ", currEmail);
+  }, [currEmail]);
+  
   return (
 
     <div>
