@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  const currName = watch('name');
+
+  useEffect(() => {
+    console.log("이름 현재 값: ", currName);
+  }, [currName]);
   
   return (
 
