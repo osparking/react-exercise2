@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -34,13 +34,15 @@ function App() {
       delete modified[name];
       setErrors(modified);
     }
-
-    console.log("name: ", e.target.value);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   }
+
+  useEffect(() => {
+    console.log("상태 변화로 인해 리렌더됨");    
+  });
 
   return (
 
