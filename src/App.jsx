@@ -1,13 +1,10 @@
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
-  const {register, handleSubmit, watch} = useForm();
-  const onSubmit = (data) => console.log(data); 
-
-  console.log(watch('name'));
-
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = (data) => console.log(data);
+  
   return (
 
     <div>
