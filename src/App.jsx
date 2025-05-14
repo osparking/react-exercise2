@@ -15,6 +15,13 @@ function App() {
     console.log("상태 변화로 인해 리렌더됨");
   });
 
+  const registeredUsernames = ['admin', 'user', 'guest'];
+
+const isUsernameTaken = async (username) => {
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return registeredUsernames.includes(username);
+}
+
   return (
 
     <div>
@@ -28,8 +35,13 @@ function App() {
                 noAdmin:
                   (name) => name !== 'admin' || 'admin 은 불허됩니다.',
                 noNumber:
-                  (name) => isNaN(name) || '숫자 이름은 불허됩니다.'}
-              })} />
+                  (name) => isNaN(name) || '숫자 이름은 불허됩니다.',
+                notTakenUsername : async (username) => {
+                  const taken = await isUsernameTaken(username);
+                  return !taken || '사용 중인 유저네임입니다.'
+                }
+              }
+            })} />
         </label>
         {errors.name && <p>{errors.name.message || 
                             "이름으로 최소한 두 글자를 입력하세요."}</p>}
