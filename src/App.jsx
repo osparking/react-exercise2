@@ -15,6 +15,13 @@ function App() {
     console.log("상태 변화로 인해 리렌더됨");
   });
 
+  const nameIsAdmin = (name) => {
+    if (name === 'admin') {
+      return true;
+    }
+    return 'admin 만 허용됩니다.';
+  }
+
   return (
 
     <div>
@@ -23,7 +30,9 @@ function App() {
         <label>이름:
           <input {...register('name', 
             { required: true,
-              minLength: 2})} />
+              minLength: 2,
+              validate: nameIsAdmin
+              })} />
         </label>
         {errors.name && <p>{errors.name.message || 
                             "이름으로 최소한 두 글자를 입력하세요."}</p>}
