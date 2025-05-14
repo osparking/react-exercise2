@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const { register, handleSubmit, formState: { errors }, 
-          reset, watch } = useForm();
+          reset, watch } = useForm({mode: 'onChange'});
   
   const onSubmit = (data) => {
     console.log(data);
