@@ -4,8 +4,12 @@ import './App.css';
 
 function App() {
   const { register, handleSubmit, watch,
-    formState: { errors } } = useForm();
-  const onSubmit = (data) => console.log(data);
+    formState: { errors }, reset } = useForm();
+  
+  const onSubmit = (data) => {
+    console.log(data);
+    reset()
+  };
 
   useEffect(() => {
     console.log("상태 변화로 인해 리렌더됨");
