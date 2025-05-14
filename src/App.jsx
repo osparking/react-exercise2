@@ -25,7 +25,7 @@ function App() {
             { required: true,
               minLength: 2,
               validate: (name) => 
-                         name === 'admin' || 'admin 만 허용됩니다.'
+                         name !== 'admin' || 'admin 은 불허됩니다.'
               })} />
         </label>
         {errors.name && <p>{errors.name.message || 
