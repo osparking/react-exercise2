@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const { register, handleSubmit, formState: { errors }, 
-          reset } = useForm();
+          reset, watch } = useForm();
   
   const onSubmit = (data) => {
     console.log(data);
@@ -62,6 +62,18 @@ const isUsernameTaken = async (username) => {
         </label>
         <br />
         {errors.password && <p>{errors.password.message}</p>}
+        <label>패스워드 확인:
+          <input type='password' {...register('confirmPassword',
+            {
+              required: '확인 패스워드는 필수 입력 항목입니다.',
+              minLength: { value: 2, 
+                    message: '확인 패스워드는 최소 두 자입니다'},
+              validate: (value) => value === watch('password') ||
+                '두 패스워드가 불일치합니다.'
+            })} />
+        </label>
+        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+        <br />
         <button type="submit">폼 제출</button>
         <button type="button" onClick={() => reset()}>폼 리셋</button>
       </form>
