@@ -52,6 +52,16 @@ const isUsernameTaken = async (username) => {
         </label>
         {errors.email && <p>이메일은 필수적 입니다.</p>}
         <br />
+        <label>패스워드:
+          <input type='password' {...register('password',
+            {
+              required: '패스워드는 필수 입력 항목입니다.',
+              minLength: { value: 2, 
+                    message: '패스워드는 최소 두 자입니다'},
+            })} />
+        </label>
+        <br />
+        {errors.password && <p>{errors.password.message}</p>}
         <button type="submit">폼 제출</button>
         <button type="button" onClick={() => reset()}>폼 리셋</button>
       </form>
