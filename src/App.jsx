@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import './App.css';
 
 function App() {
-  const { register, handleSubmit, watch,
-    formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, 
+          reset } = useForm();
   
   const onSubmit = (data) => {
     console.log(data);
@@ -22,11 +22,11 @@ function App() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>이름:
           <input {...register('name', 
-            { required: '이름은 필수 입력 항목입니다.',
-              minLength: { value: 2, 
-                           message: '이름은 최소 두 자입니다'}})} />
+            { required: true,
+              minLength: 2})} />
         </label>
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p>{errors.name.message || 
+                            "이름으로 최소한 두 글자를 입력하세요."}</p>}
         <br />
         <label>이메일:
           <input {...register('email', { required: true, pattern:
