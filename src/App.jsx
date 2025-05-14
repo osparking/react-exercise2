@@ -33,7 +33,9 @@ function App() {
            /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ })} />
         </label>
         {errors.email && <p>이메일은 필수적 입니다.</p>}
+        <br />
         <button type="submit">폼 제출</button>
+        <button type="button" onClick={() => reset()}>폼 리셋</button>
       </form>
     </div>
   )
