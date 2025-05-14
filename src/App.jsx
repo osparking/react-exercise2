@@ -15,13 +15,6 @@ function App() {
     console.log("상태 변화로 인해 리렌더됨");
   });
 
-  const nameIsAdmin = (name) => {
-    if (name === 'admin') {
-      return true;
-    }
-    return 'admin 만 허용됩니다.';
-  }
-
   return (
 
     <div>
@@ -31,7 +24,8 @@ function App() {
           <input {...register('name', 
             { required: true,
               minLength: 2,
-              validate: nameIsAdmin
+              validate: (name) => 
+                         name === 'admin' || 'admin 만 허용됩니다.'
               })} />
         </label>
         {errors.name && <p>{errors.name.message || 
