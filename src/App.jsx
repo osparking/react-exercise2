@@ -24,8 +24,11 @@ function App() {
           <input {...register('name', 
             { required: true,
               minLength: 2,
-              validate: (name) => 
-                         name !== 'admin' || 'admin 은 불허됩니다.'
+              validate: {
+                noAdmin:
+                  (name) => name !== 'admin' || 'admin 은 불허됩니다.',
+                noNumber:
+                  (name) => isNaN(name) || '숫자 이름은 불허됩니다.'}
               })} />
         </label>
         {errors.name && <p>{errors.name.message || 
